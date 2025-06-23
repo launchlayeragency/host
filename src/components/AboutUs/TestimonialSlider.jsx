@@ -65,7 +65,7 @@ const TestimonialSlider = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             What Users Say
           </h2>
-          <p className="text-base lg:text-lg text-gray-500 sm:w-[65%]  mx-auto">
+          <p className="text-base lg:text-lg text-gray-500 sm:w-[65%] xl:w-[50%]  mx-auto">
             ametamngcing elit, per sed do eiusmoad teimpor sittem elit inuning ut sed sittem do eiusmod.
           </p>
         </div>
