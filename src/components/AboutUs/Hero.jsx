@@ -1,17 +1,11 @@
-import backgroundImage from '../../assets/breadcrumb_bg.png';
+import BgImage from "./BgImage";
+
 
 export default function Hero() {
   return (
     <section id='hero' className="relative h-[450px] md:min-h-[650px] w-full overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-no-repeat bg-center"
-        style={{ 
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: '120% 100%',
-          backgroundPosition: '45% center',
-        }}
-      ></div>
+      <BgImage/>
 
       {/* Content */}
       <div className="absolute inset-0 z-10 flex items-center justify-start px-6 sm:px-12 lg:px-24 w-[85%] mx-auto">

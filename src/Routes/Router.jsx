@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../Home/Home";
 import NotFound from "../shared/NotFound";
 import AboutUs from "../AboutUs/AboutUs";
+import Domain from "../Domain/Domain";
 
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
        {
         path: "/about",
         element: <AboutUs />,
+      },
+        {
+        path: "/domain",
+        element: <Domain />,
       },
     ],
   },
