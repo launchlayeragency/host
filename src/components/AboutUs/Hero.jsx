@@ -2,7 +2,7 @@ import backgroundImage from '../../assets/breadcrumb_bg.png';
 
 export default function Hero() {
   return (
-    <section className="relative h-[450px] md:min-h-[650px] w-full overflow-hidden">
+    <section id='hero' className="relative h-[450px] md:min-h-[650px] w-full overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 w-full h-full bg-no-repeat bg-center"
