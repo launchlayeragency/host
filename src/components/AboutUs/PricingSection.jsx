@@ -2,12 +2,12 @@
 const PricingSection = () => {
     return (
         <section
-            className="py-16 "
+            className="py-20 "
             style={{
                 background: 'linear-gradient(to left, #5194db 0%, #1a237a 49%, #2c135c 100%)'
             }}
         >
-            <div className="w-[90%] mx-auto">
+            <div className="w-[85%] mx-auto">
                 <div className="flex flex-col md:flex-row md:items-center justify-left md:justify-between gap-8">
                     {/* Left Side - Text Content............ */}
                     <div className="md:w-[70%] text-left">

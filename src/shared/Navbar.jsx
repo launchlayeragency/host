@@ -57,7 +57,7 @@ const Navbar = () => {
             onClick={toggleMenu}
           >
             <FaUserFriends className="mr-2 text-lg" />
-            <span>Aboutus</span>
+            <span>About Us</span>
           </NavLink>
           <NavLink
             to="/hosting"
@@ -158,7 +158,7 @@ const Navbar = () => {
             }
           >
             <FaUserFriends className="mr-2 text-lg" />
-            <span>Aboutus</span>
+            <span>About Us</span>
           </NavLink>
           <NavLink
             to="/hosting"
