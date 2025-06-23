@@ -30,7 +30,7 @@ const FeaturesSection = () => {
         background: 'linear-gradient(to left, #5194db 0%, #1a237a 49%, #2c135c 100%)'
       }}
     >
-      <div className="w-[90%] mx-auto">
+      <div className="w-[85%] mx-auto">
         {/* Heading and Description ......................*/}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
