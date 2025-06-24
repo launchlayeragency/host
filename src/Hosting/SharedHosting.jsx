@@ -4,11 +4,14 @@ import FeatureSharedHost from '../components/Hosting/SharedHosting/FeatureShared
 import ReviewSharedHosting from '../components/Hosting/SharedHosting/ReviewSharedHosting'
 import PricingSection from '../components/AboutUs/PricingSection'
 import PartnersSection from '../components/Hosting/SharedHosting/PartnersSection'
+import PaymentShared from '../components/Hosting/SharedHosting/PaymentShared'
 
 export default function SharedHosting() {
   return (
     <div>
         <HeroSharedHosting/>
+
+        <PaymentShared/>
           <FeatureSharedHost/>
     <ReviewSharedHosting/>
       <PartnersSection/>
