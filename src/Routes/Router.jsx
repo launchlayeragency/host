@@ -8,7 +8,7 @@ import VPSHosting from "../Hosting/VPSHosting";
 import ResellerHosting from "../Hosting/ResellerHosting";
 import SharedHosting from "../Hosting/SharedHosting";
 import Contact from "../Home/Contact";
-
+import DedicatedServer from "../Pages/DedicatedServer";
 
 const router = createBrowserRouter([
   {
@@ -19,36 +19,42 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-       {
+      {
         path: "/about",
         element: <AboutUs />,
       },
-       {
+      {
         path: "/contact",
         element: <Contact />,
       },
-            //hosting...
-         {
+
+      // pages..
+      {
+        path: "/pages/dedicated-server",
+        element: <DedicatedServer />,
+      },
+      //hosting...
+      {
         path: "/hosting/shared",
         element: <SharedHosting />,
       },
-       {
+      {
         path: "/hosting/reseller",
         element: <ResellerHosting />,
       },
 
-       {
+      {
         path: "/hosting/vps",
         element: <VPSHosting />,
       },
       //domain
-        {
+      {
         path: "/domain",
         element: <Domain />,
       },
     ],
   },
-  
+
   {
     path: "*",
     element: <NotFound />,
