@@ -1,27 +1,27 @@
 import React from 'react';
-import img1 from "../../assets/f_features_icon01.png"
-import img2 from "../../assets/f_features_icon02.png"
-import img3 from "../../assets/f_features_icon03.png"
+import img1 from "../../../assets/feature_icon01.png"
+import img2 from "../../../assets/feature_icon02.png"
+import img3 from "../../../assets/feature_icon03.png"
 
-const FeaturedDomain = () => {
+const FeatureReseller = () => {
   const features = [
     {
       id: 1,
       icon: img1,
-      title: "Easy Management",
-      description: "Our free web hosting is powered by top of the line enterprise hardware done. Our robust help center."
+      title: "Free Site Transfer",
+      description: "Our free web hosting is powered transfering from another host? Our expert support team is standing by to transfer your site from your old host."
     },
     {
       id: 2,
       icon: img2,
-      title: "Auto-Renewal",
-      description: "Our free web hosting is powered by top of the line enterprise hardware done. Our robust help center."
+      title: "Free Auto Installer",
+      description: "Our free web hosting is powered transfering from another host? Our expert support team is standing by to transfer your site from your old host."
     },
     {
       id: 3,
       icon: img3,
-      title: "Domain Lock",
-      description: "Our free web hosting is powered by top of the line enterprise hardware done. Our robust help center."
+      title: "Free Instant Setup",
+      description: "Our free web hosting is powered transfering from another host? Our expert support team is standing by to transfer your site from your old host."
     }
   ];
 
@@ -31,11 +31,10 @@ const FeaturedDomain = () => {
         {/* Section Header............... */}
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Each Domains Include
+            Why Reseller Hosting
           </h2>
           <p className="text-base lg:text-lg text-gray-500 sm:w-[65%] xl:w-[50%]  mx-auto">
-            ametamngcing elit, per sed do eiusmoad teimpor sittem elit inuning ut 
-            sed sittem do eiusmod.
+           ametamngcing elit, per sed do eiusmoad teimpor sittem elit inuning ut sed sittem do eiusmod.
           </p>
         </div>
 
@@ -70,4 +69,4 @@ const FeaturedDomain = () => {
     </section>
   );
 };
-export default FeaturedDomain;
+export default FeatureReseller;
