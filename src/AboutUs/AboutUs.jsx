@@ -16,7 +16,7 @@ const AboutUs = () => {
             <WhyChooseSection/>
             <TestimonialSlider/>
             <ImageSlider/>
-            <PricingSection/>
+            <PricingSection scrollToId="about" />
         </div>
     );
 };

@@ -1,7 +1,8 @@
 
+import PricingSection from '../components/AboutUs/PricingSection'
 import DomainHero from '../components/Domain/DomainHero'
 import FeaturedDomain from '../components/Domain/FeaturedDomain'
-import PricingBottom from '../components/Domain/PricingBottom'
+import Support from '../components/Domain/Support'
 import TestimonialDomain from '../components/Domain/TestimonialDomain'
 
 export default function Domain() {
@@ -9,8 +10,9 @@ export default function Domain() {
     <div>
         <DomainHero/>
         <FeaturedDomain/>
+        <Support/>
         <TestimonialDomain/>
-        <PricingBottom/>
+        <PricingSection scrollToId="domain" />
     </div>
   )
 }

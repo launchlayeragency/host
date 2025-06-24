@@ -20,7 +20,7 @@ export default function GlobalProvider() {
                         {/* Contact Button */}
                         <button className="relative px-8 py-3 rounded-lg bg-teal-400 text-black font-medium overflow-hidden group"
                             onClick={() => {
-                                document.getElementById('hero')?.scrollIntoView({
+                                document.getElementById('about')?.scrollIntoView({
                                     behavior: 'smooth'
                                 });
                             }}
