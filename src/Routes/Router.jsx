@@ -7,6 +7,7 @@ import Domain from "../Domain/Domain";
 import VPSHosting from "../Hosting/VPSHosting";
 import ResellerHosting from "../Hosting/ResellerHosting";
 import SharedHosting from "../Hosting/SharedHosting";
+import Contact from "../Home/Contact";
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
        {
         path: "/about",
         element: <AboutUs />,
+      },
+       {
+        path: "/contact",
+        element: <Contact />,
       },
             //hosting...
          {

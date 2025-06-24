@@ -9,6 +9,8 @@ import WhyChooseSection from '../components/AboutUs/WhyChooseSection';
 import TestimonialSlider from '../components/AboutUs/TestimonialSlider';
 import ImageSlider from '../components/AboutUs/ImageSlider';
 import PricingSection from '../components/AboutUs/PricingSection';
+import Serverworldwide from './Serverworldwide';
+import FAQ from './FAQ';
 
 const Home = () => {
     return (
@@ -22,6 +24,8 @@ const Home = () => {
             <FeaturesForYou/>
            <TestimonialSlider/>
             <ImageSlider/>
+            <Serverworldwide/>
+            <FAQ/>
             {/* pricing section */}
             <PricingSection/>
         </div>

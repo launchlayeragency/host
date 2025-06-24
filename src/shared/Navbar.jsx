@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-
 import { FaGlobe, FaServer, FaFileAlt, FaAddressBook, FaUserFriends, FaUser, FaSearch, FaBars, FaChevronDown } from 'react-icons/fa';
 import { IoMdHome } from "react-icons/io";
 import logo from '../assets/logo (1).png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
   const [openMobileDropdown, setOpenMobileDropdown] = useState('');
+  
+  // State for controlling desktop dropdowns
+  const [openDesktopDropdown, setOpenDesktopDropdown] = useState('');
+
+  // Refs to detect clicks outside the dropdowns
+  const hostingDropdownRef = useRef(null);
+  const pagesDropdownRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,6 +22,30 @@ const Navbar = () => {
   const handleMobileDropdown = (dropdownName) => {
     setOpenMobileDropdown(openMobileDropdown === dropdownName ? '' : dropdownName);
   };
+  
+  // --- NEW: Function to toggle desktop dropdowns on click ---
+  const handleDesktopDropdownToggle = (dropdownName) => {
+    // If the clicked dropdown is already open, close it. Otherwise, open it.
+    setOpenDesktopDropdown(current => (current === dropdownName ? '' : dropdownName));
+  };
+  
+  // --- NEW: useEffect to handle clicks outside the dropdowns ---
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const isClickOutsideHosting = hostingDropdownRef.current && !hostingDropdownRef.current.contains(event.target);
+      const isClickOutsidePages = pagesDropdownRef.current && !pagesDropdownRef.current.contains(event.target);
+
+      if (isClickOutsideHosting && isClickOutsidePages) {
+        setOpenDesktopDropdown(''); // Close any open dropdown
+      }
+    };
+    // Add event listener when the component mounts
+    document.addEventListener("mousedown", handleClickOutside);
+    // Remove event listener on cleanup
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []); // Empty array ensures this effect runs only once
 
   return (
     <nav className="sticky top-0 z-50 bg-gradient-to-br from-[#1e3c72] to-[#2a5298] text-white">
@@ -30,7 +59,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu (Updated with dropdown logic) */}
+      {/* Mobile Menu (Unchanged) */}
       <div
         className={`fixed inset-0 bg-[#1e3c72] bg-opacity-95 z-50 transform ${
           isMenuOpen ? 'translate-x-0' : '-translate-x-full'
@@ -42,7 +71,6 @@ const Navbar = () => {
           </button>
         </div>
         <div className="flex flex-col items-center space-y-4 p-4">
-          {/* Unchanged Links */}
           <NavLink to="/" className={({ isActive }) => `flex items-center px-3 py-2 rounded-md w-full text-left transition-all ${ isActive ? 'bg-white text-blue-600' : 'hover:bg-blue-700 hover:bg-opacity-30' }`} onClick={toggleMenu} >
             <IoMdHome className="mr-2 text-lg" />
             <span>Home</span>
@@ -51,8 +79,6 @@ const Navbar = () => {
             <FaUserFriends className="mr-2 text-lg" />
             <span>About Us</span>
           </NavLink>
-
-          {/* Hosting Mobile Accordion */}
           <div className="w-full">
             <button onClick={() => handleMobileDropdown('hosting')} className="flex items-center justify-between px-3 py-2 rounded-md w-full text-left transition-all hover:bg-blue-700 hover:bg-opacity-30" >
               <span className="flex items-center">
@@ -69,13 +95,10 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          
           <NavLink to="/domain" className={({ isActive }) => `flex items-center px-3 py-2 rounded-md w-full text-left transition-all ${ isActive ? 'bg-white text-blue-600' : 'hover:bg-blue-700 hover:bg-opacity-30' }`} onClick={toggleMenu}>
             <FaGlobe className="mr-2 text-lg" />
             <span>Domain</span>
           </NavLink>
-
-          {/* Pages Mobile Accordion */}
            <div className="w-full">
             <button onClick={() => handleMobileDropdown('pages')} className="flex items-center justify-between px-3 py-2 rounded-md w-full text-left transition-all hover:bg-blue-700 hover:bg-opacity-30" >
               <span className="flex items-center">
@@ -94,8 +117,6 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          
-          {/* Unchanged Links */}
           <NavLink to="/contact" className={({ isActive }) => `flex items-center px-3 py-2 rounded-md w-full text-left transition-all ${ isActive ? 'bg-white text-blue-600' : 'hover:bg-blue-700 hover:bg-opacity-30' }`} onClick={toggleMenu}>
             <FaAddressBook className="mr-2 text-lg" />
             <span>Contact</span>
@@ -109,7 +130,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Desktop Navigation (Updated with dropdown logic) */}
+      {/* Desktop Navigation (Updated with click-to-open logic) */}
       <div className="hidden md:flex md:items-center md:justify-between px-8 py-6">
         <NavLink to="/" className="flex items-center">
           <img src={logo} alt="Logo" className="h-10" />
@@ -125,17 +146,19 @@ const Navbar = () => {
           </NavLink>
 
           {/* Hosting Desktop Dropdown */}
-          <div className="relative group">
-            <button className="flex items-center px-3 py-2 rounded-md transition-all text-white hover:bg-blue-700 hover:bg-opacity-30">
+          <div className="relative" ref={hostingDropdownRef}>
+            <button onClick={() => handleDesktopDropdownToggle('hosting')} className="flex items-center px-3 py-2 rounded-md transition-all text-white hover:bg-blue-700 hover:bg-opacity-30">
               <FaServer className="mr-2 text-lg" />
               <span>Hosting</span>
               <FaChevronDown className="ml-1 text-xs" />
             </button>
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-md shadow-xl py-2 z-10 hidden group-hover:block">
-              <NavLink to="/hosting/shared" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">Shared Hosting</NavLink>
-              <NavLink to="/hosting/reseller" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">Reseller Hosting</NavLink>
-              <NavLink to="/hosting/vps" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">VPS Hosting</NavLink>
-            </div>
+            {openDesktopDropdown === 'hosting' && (
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-md shadow-xl py-2 z-10">
+                <NavLink to="/hosting/shared" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">Shared Hosting</NavLink>
+                <NavLink to="/hosting/reseller" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">Reseller Hosting</NavLink>
+                <NavLink to="/hosting/vps" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">VPS Hosting</NavLink>
+              </div>
+            )}
           </div>
           
           <NavLink to="/domain" className={({ isActive }) => `flex items-center px-3 py-2 rounded-md transition-all ${ isActive ? 'bg-white text-blue-600' : 'text-white hover:bg-blue-700 hover:bg-opacity-30' }`}>
@@ -144,19 +167,21 @@ const Navbar = () => {
           </NavLink>
 
           {/* Pages Desktop Dropdown */}
-          <div className="relative group">
-            <button className="flex items-center px-3 py-2 rounded-md transition-all text-white hover:bg-blue-700 hover:bg-opacity-30">
+          <div className="relative" ref={pagesDropdownRef}>
+            <button onClick={() => handleDesktopDropdownToggle('pages')} className="flex items-center px-3 py-2 rounded-md transition-all text-white hover:bg-blue-700 hover:bg-opacity-30">
               <FaFileAlt className="mr-2 text-lg" />
               <span>Pages</span>
               <FaChevronDown className="ml-1 text-xs" />
             </button>
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-md shadow-xl py-2 z-10 hidden group-hover:block">
-              <NavLink to="/pages/dedicated-server" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">Dedicated Server</NavLink>
-              <NavLink to="/pages/whmcs" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">WHMCS Page</NavLink>
-              <NavLink to="/pages/support" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">Support Page</NavLink>
-              <NavLink to="/pages/news" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">News Page</NavLink>
-              <NavLink to="/pages/news-details" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">News Details</NavLink>
-            </div>
+            {openDesktopDropdown === 'pages' && (
+              <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-md shadow-xl py-2 z-10">
+                <NavLink to="/pages/dedicated-server" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">Dedicated Server</NavLink>
+                <NavLink to="/pages/whmcs" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">WHMCS Page</NavLink>
+                <NavLink to="/pages/support" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">Support Page</NavLink>
+                <NavLink to="/pages/news" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">News Page</NavLink>
+                <NavLink to="/pages/news-details" className="block px-4 py-2 text-blue-600 hover:bg-gray-100">News Details</NavLink>
+              </div>
+            )}
           </div>
 
           <NavLink to="/contact" className={({ isActive }) => `flex items-center px-3 py-2 rounded-md transition-all ${ isActive ? 'bg-white text-blue-600' : 'text-white hover:bg-blue-700 hover:bg-opacity-30' }`}>
