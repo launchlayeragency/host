@@ -3,7 +3,7 @@ import BgImage from "./BgImage";
 
 export default function Hero() {
   return (
-    <section id='hero' className="relative h-[450px] md:min-h-[650px] w-full overflow-hidden">
+    <section id='about' className="relative h-[450px] md:min-h-[650px] w-full overflow-hidden">
       {/* Background Image */}
       <BgImage/>
 

@@ -1,5 +1,4 @@
-
-const PricingSection = () => {
+const PricingSection = ({ scrollToId }) => {
     return (
         <section
             className="py-20 "
@@ -25,7 +24,7 @@ const PricingSection = () => {
                     <div className="md:w-[30%] flex justify-left md:justify-center">
                         <button className="relative px-4 py-2 md:px-5 md:py-3 lg:px-8 lg:py-4 rounded-lg bg-teal-400 text-black font-medium overflow-hidden group transition-all duration-500"
                             onClick={() => {
-                                document.getElementById('hero')?.scrollIntoView({
+                                document.getElementById(scrollToId)?.scrollIntoView({
                                     behavior: 'smooth'
                                 });
                             }}
