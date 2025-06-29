@@ -6,10 +6,12 @@ import TestimonialSlider from '../components/AboutUs/TestimonialSlider';
 import ImageSlider from '../components/AboutUs/ImageSlider';
 import PricingSection from '../components/AboutUs/PricingSection';
 import HeroSection from '../components/Shared/HeroSection';
+import { LoadingWrapper } from '../components/Shared/LoadingWrapper';
 
 const AboutUs = () => {
     return (
-        <div>
+        <LoadingWrapper>
+            <div>
             <HeroSection
                 title="About Hostgem"
                 description="The story of how Hostgem came to be."
@@ -22,6 +24,8 @@ const AboutUs = () => {
             <ImageSlider />
             <PricingSection scrollToId="about" />
         </div>
+        </LoadingWrapper>
+        
     );
 };
 
