@@ -19,7 +19,7 @@ const ImageSlider = () => {
 
     return (
         <section className="py-14 bg-white">
-            <div className="w-[80%] mx-auto flex items-center justify-center overflow-hidden">
+            <div className="w-[85S%] mx-auto flex items-center justify-center overflow-hidden">
                 <Swiper
                     slidesPerView={1}
                     spaceBetween={30}
