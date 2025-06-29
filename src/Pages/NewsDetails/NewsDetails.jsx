@@ -1,10 +1,14 @@
-import React from 'react'
-import NewsDetailsHero from '../../components/NewsDetails/NewsDetailsHero'
+import HeroSection from "../../components/Shared/HeroSection";
+
 
 export default function NewsDetails() {
-  return (
-    <div>
-        <NewsDetailsHero/>
-    </div>
-  )
+    return (
+        <div>
+            <HeroSection
+                title="News Details"
+                description="The story of how Hostgem came to be."
+                id="news-details"
+            />
+        </div>
+    )
 }
