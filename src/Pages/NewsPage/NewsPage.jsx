@@ -1,10 +1,15 @@
 import React from 'react'
-import NewsHero from '../../components/NewsPage/NewsHero'
+
+import HeroSection from '../../components/Shared/HeroSection'
 
 export default function NewsPage() {
-  return (
-    <div>
-        <NewsHero/>
-    </div>
-  )
+    return (
+        <div>
+            <HeroSection
+                title="News Page"
+                description="The story of how Hostgem came to be."
+                id="news"
+            />
+        </div>
+    )
 }
