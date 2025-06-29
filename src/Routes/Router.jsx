@@ -11,6 +11,8 @@ import Contact from "../Home/Contact";
 import DedicatedServer from "../Pages/DedicatedServer";
 import SupportPage from "../Pages/Support/SupportPage";
 import WHMCS from "../Pages/WHMCS/WHMCS";
+import NewsDetails from "../Pages/NewsDetails/NewsDetails";
+import NewsPage from "../Pages/NewsPage/NewsPage";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: "/pages/support",
         element: <SupportPage />,
+      },
+       {
+        path: "/pages/news",
+        element: <NewsPage />,
+      },
+       {
+        path: "/pages/news-details",
+        element: <NewsDetails />,
       },
       //hosting...
       {
