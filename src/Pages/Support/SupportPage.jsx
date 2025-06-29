@@ -10,7 +10,7 @@ export default function SupportPage() {
         <SupportHero/>
         <SupportCards/>
         <SupportFeatures/>
-          <PricingSection scrollToId="vpsHosting"/>
+          <PricingSection scrollToId="support"/>
     </div>
   )
 }

@@ -10,7 +10,7 @@ export default function SupportHero() {
     
     return (
         <>
-            <section id='whmcs' className="relative h-[450px] md:min-h-[650px] w-full overflow-hidden">
+            <section id='support' className="relative h-[450px] md:min-h-[650px] w-full overflow-hidden">
                 {/* Background Image */}
                 <BgImage />
 
