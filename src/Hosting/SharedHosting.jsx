@@ -5,17 +5,21 @@ import ReviewSharedHosting from '../components/Hosting/SharedHosting/ReviewShare
 import PricingSection from '../components/AboutUs/PricingSection'
 import PartnersSection from '../components/Hosting/SharedHosting/PartnersSection'
 import PaymentShared from '../components/Hosting/SharedHosting/PaymentShared'
+import { LoadingWrapper } from '../components/Shared/LoadingWrapper'
 
 export default function SharedHosting() {
   return (
-    <div>
-        <HeroSharedHosting/>
 
-        <PaymentShared/>
-          <FeatureSharedHost/>
-    <ReviewSharedHosting/>
-      <PartnersSection/>
-    <PricingSection scrollToId="sharedHosting" />
-    </div>
+    <LoadingWrapper>
+      <div>
+        <HeroSharedHosting />
+        <PaymentShared />
+        <FeatureSharedHost />
+        <ReviewSharedHosting />
+        <PartnersSection />
+        <PricingSection scrollToId="sharedHosting" />
+      </div>
+    </LoadingWrapper>
+
   )
 }

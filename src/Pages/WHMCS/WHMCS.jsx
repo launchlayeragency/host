@@ -4,15 +4,19 @@ import PartnersSection from '../../components/Hosting/SharedHosting/PartnersSect
 import WhmcsHero from '../../components/WHMCS/WhmcsHero'
 import HelpWHMCS from '../../components/WHMCS/HelpWHMCS'
 import WhmcsNewsSection from '../../components/WHMCS/WhmcsNewsSection'
+import { LoadingWrapper } from '../../components/Shared/LoadingWrapper'
 
 export default function WHMCS() {
   return (
-    <div>
+     <LoadingWrapper>
+        <div>
         <WhmcsHero/>
         <HelpWHMCS/>
         <WhmcsNewsSection/>
         <PartnersSection/>
           <PricingSection scrollToId="whmcs"/>
     </div>
+     </LoadingWrapper>
+    
   )
 }
