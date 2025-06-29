@@ -9,6 +9,8 @@ import ResellerHosting from "../Hosting/ResellerHosting";
 import SharedHosting from "../Hosting/SharedHosting";
 import Contact from "../Home/Contact";
 import DedicatedServer from "../Pages/DedicatedServer";
+import SupportPage from "../Pages/Support/SupportPage";
+import WHMCS from "../Pages/WHMCS/WHMCS";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: "/pages/dedicated-server",
         element: <DedicatedServer />,
+      },
+       {
+        path: "/pages/whmcs",
+        element: <WHMCS />,
+      },
+      {
+        path: "/pages/support",
+        element: <SupportPage />,
       },
       //hosting...
       {
